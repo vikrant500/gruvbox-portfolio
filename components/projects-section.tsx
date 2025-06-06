@@ -51,7 +51,7 @@ const projects = [
     id: 5,
     title: "ICARUS: Adaptive Learning Platform",
     description: "Web extension that enhances reading for neurodiverse students with AI-powered features",
-    image: "/professional/icarus.png",
+    image: "/professional/icarus_image.png",
     tags: ["Gemini", "Python", "React", "Tailwind"],
     github: "https://github.com/vikrant500/Icarus_HackX24",
     isWebsite: false,
