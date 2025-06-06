@@ -67,8 +67,8 @@ export function SkillsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold mb-4 text-gruvbox-green">Skills & Technologies</h2>
-          <p className="text-xl text-gruvbox-text/70">My technical expertise</p>
+          <h2 className="text-5xl font-bold mb-4 text-gruvbox-green/90">Skills & Technologies</h2>
+          <p className="text-xl text-gruvbox-text/60">My technical expertise</p>
         </motion.div>
 
         <motion.div
@@ -76,15 +76,15 @@ export function SkillsSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="backdrop-blur-lg bg-[#3c3836]/30 border border-[#504945]/30 rounded-2xl p-8"
+          className="backdrop-blur-sm bg-[#3c3836]/10 border border-[#504945]/20 rounded-2xl p-8"
         >
           <div className="flex flex-wrap gap-2 mb-8 justify-center">
             <button
               onClick={() => setSelectedCategory(null)}
               className={`px-4 py-2 rounded-full transition-all ${
                 selectedCategory === null
-                  ? "bg-gruvbox-orange text-gruvbox-dark"
-                  : "bg-[#504945]/30 text-gruvbox-text hover:bg-gruvbox-orange/20"
+                  ? "bg-gruvbox-orange/80 text-gruvbox-dark"
+                  : "bg-[#3c3836]/10 text-gruvbox-text/80 hover:bg-gruvbox-orange/10 border border-[#504945]/20"
               }`}
             >
               All
@@ -95,8 +95,8 @@ export function SkillsSection() {
                 onClick={() => setSelectedCategory(key)}
                 className={`px-4 py-2 rounded-full transition-all ${
                   selectedCategory === key
-                    ? "bg-gruvbox-orange text-gruvbox-dark"
-                    : "bg-[#504945]/30 text-gruvbox-text hover:bg-gruvbox-orange/20"
+                    ? "bg-gruvbox-orange/80 text-gruvbox-dark"
+                    : "bg-[#3c3836]/10 text-gruvbox-text/80 hover:bg-gruvbox-orange/10 border border-[#504945]/20"
                 }`}
               >
                 {label}
@@ -113,25 +113,25 @@ export function SkillsSection() {
                 viewport={{ once: true }}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 10px 30px rgba(254, 128, 25, 0.2)",
+                  boxShadow: "0 10px 30px rgba(254, 128, 25, 0.1)",
                 }}
                 transition={{ 
                   duration: 0.2, 
                   ease: "easeOut",
-                  default: { duration: 0.4 } // for whileInView animation
+                  default: { duration: 0.4 }
                 }}
-                className="backdrop-blur-sm bg-[#504945]/20 rounded-xl p-4 border border-[#665c54]/30 hover:border-gruvbox-orange/50 transition-all duration-200 ease-out cursor-pointer group"
+                className="backdrop-blur-sm bg-[#3c3836]/10 rounded-xl p-4 border border-[#504945]/20 hover:border-gruvbox-orange/30 transition-all duration-200 ease-out cursor-pointer group"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-semibold text-gruvbox-text group-hover:text-gruvbox-orange transition-colors duration-200">
+                  <h3 className="text-sm font-semibold text-gruvbox-text/80 group-hover:text-gruvbox-orange/80 transition-colors duration-200">
                     {skill.name}
                   </h3>
-                  <span className="text-xs text-gruvbox-text/70">{skill.level}%</span>
+                  <span className="text-xs text-gruvbox-text/60">{skill.level}%</span>
                 </div>
 
-                <div className="w-full bg-[#3c3836] rounded-full h-1.5 overflow-hidden">
+                <div className="w-full bg-[#3c3836]/20 rounded-full h-1.5 overflow-hidden">
                   <motion.div
-                    className={`h-full bg-gradient-to-r from-gruvbox-orange to-gruvbox-green rounded-full`}
+                    className={`h-full bg-gradient-to-r from-gruvbox-orange/60 to-gruvbox-green/60 rounded-full`}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     transition={{ duration: 1}}
@@ -140,7 +140,7 @@ export function SkillsSection() {
                 </div>
 
                 <motion.div 
-                  className="mt-1 text-xs text-gruvbox-text/50 capitalize transition-colors duration-200" 
+                  className="mt-1 text-xs text-gruvbox-text/60 capitalize transition-colors duration-200" 
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
                 >

@@ -94,86 +94,86 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="backdrop-blur-lg bg-[#3c3836]/30 border-[#504945]/30 h-full">
+            <Card className="backdrop-blur-sm bg-[#3c3836]/10 border-[#504945]/20 h-full">
               <CardHeader>
-                <CardTitle className="text-2xl text-gruvbox-orange">Contact Information</CardTitle>
-                <CardDescription className="text-gruvbox-text/70">
+                <CardTitle className="text-2xl text-gruvbox-orange/80">Contact Information</CardTitle>
+                <CardDescription className="text-gruvbox-text/60">
                   Feel free to reach out through any of these channels
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-full bg-gruvbox-orange/20 border border-gruvbox-orange/30">
-                    <Mail className="w-5 h-5 text-gruvbox-orange" />
+                  <div className="p-3 rounded-full bg-[#3c3836]/10 border border-[#504945]/20">
+                    <Mail className="w-5 h-5 text-gruvbox-orange/80" />
                   </div>
                   <div>
-                    <p className="font-medium text-gruvbox-text">Email</p>
-                    <p className="text-gruvbox-text/70">500vikrant@gmail.com</p>
+                    <p className="font-medium text-gruvbox-text/80">Email</p>
+                    <p className="text-gruvbox-text/60">500vikrant@gmail.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-full bg-gruvbox-green/20 border border-gruvbox-green/30">
-                    <Phone className="w-5 h-5 text-gruvbox-green" />
+                  <div className="p-3 rounded-full bg-[#3c3836]/10 border border-[#504945]/20">
+                    <Phone className="w-5 h-5 text-gruvbox-green/80" />
                   </div>
                   <div>
-                    <p className="font-medium text-gruvbox-text">Phone</p>
-                    <p className="text-gruvbox-text/70">+91 7291858859</p>
+                    <p className="font-medium text-gruvbox-text/80">Phone</p>
+                    <p className="text-gruvbox-text/60">+91 7291858859</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-full bg-gruvbox-purple/20 border border-gruvbox-purple/30">
-                    <MapPin className="w-5 h-5 text-gruvbox-purple" />
+                  <div className="p-3 rounded-full bg-[#3c3836]/10 border border-[#504945]/20">
+                    <MapPin className="w-5 h-5 text-gruvbox-purple/80" />
                   </div>
                   <div>
-                    <p className="font-medium text-gruvbox-text">Location</p>
-                    <p className="text-gruvbox-text/70">India</p>
+                    <p className="font-medium text-gruvbox-text/80">Location</p>
+                    <p className="text-gruvbox-text/60">India</p>
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-[#504945]/30">
-                  <p className="font-medium text-gruvbox-text mb-4">Follow me on</p>
+                <div className="pt-6 border-t border-[#504945]/20">
+                  <p className="font-medium text-gruvbox-text/80 mb-4">Follow me on</p>
                   <div className="flex space-x-4 flex-wrap">
                     <motion.a
                       href="https://github.com/vikrant500"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-[#504945]/30 border border-[#665c54]/30 hover:border-[#fe8019]/50 transition-all group"
+                      className="p-3 rounded-full bg-[#3c3836]/10 border border-[#504945]/20 hover:border-[#fe8019]/30 transition-all group"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Github className="w-5 h-5 text-gruvbox-text group-hover:text-[#fe8019] transition-colors" />
+                      <Github className="w-5 h-5 text-gruvbox-text/80 group-hover:text-[#fe8019]/80 transition-colors" />
                     </motion.a>
                     <motion.a
                       href="https://www.linkedin.com/in/vikrant-sharma3/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-[#504945]/30 border border-[#665c54]/30 hover:border-[#8ec07c]/50 transition-all group"
+                      className="p-3 rounded-full bg-[#3c3836]/10 border border-[#504945]/20 hover:border-[#8ec07c]/30 transition-all group"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Linkedin className="w-5 h-5 text-gruvbox-text group-hover:text-[#8ec07c] transition-colors" />
+                      <Linkedin className="w-5 h-5 text-gruvbox-text/80 group-hover:text-[#8ec07c]/80 transition-colors" />
                     </motion.a>
                     <motion.a
                       href="https://x.com/vik_5000"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-[#504945]/30 border border-[#665c54]/30 hover:border-[#d3869b]/50 transition-all group"
+                      className="p-3 rounded-full bg-[#3c3836]/10 border border-[#504945]/20 hover:border-[#d3869b]/30 transition-all group"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Twitter className="w-5 h-5 text-gruvbox-text group-hover:text-[#d3869b] transition-colors" />
+                      <Twitter className="w-5 h-5 text-gruvbox-text/80 group-hover:text-[#d3869b]/80 transition-colors" />
                     </motion.a>
                     <motion.a
                       href="https://leetcode.com/u/vikr4nt_/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-[#504945]/30 border border-[#665c54]/30 hover:border-[#fb4934]/50 transition-all group"
+                      className="p-3 rounded-full bg-[#3c3836]/10 border border-[#504945]/20 hover:border-[#fb4934]/30 transition-all group"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Code2 className="w-5 h-5 text-gruvbox-text group-hover:text-[#fb4934] transition-colors" />
+                      <Code2 className="w-5 h-5 text-gruvbox-text/80 group-hover:text-[#fb4934]/80 transition-colors" />
                     </motion.a>
                   </div>
                 </div>
@@ -187,10 +187,10 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="backdrop-blur-lg bg-[#3c3836]/30 border-[#504945]/30">
+            <Card className="backdrop-blur-sm bg-[#3c3836]/10 border-[#504945]/20">
               <CardHeader>
-                <CardTitle className="text-2xl text-gruvbox-green">Send a Message</CardTitle>
-                <CardDescription className="text-gruvbox-text/70">
+                <CardTitle className="text-2xl text-gruvbox-green/80">Send a Message</CardTitle>
+                <CardDescription className="text-gruvbox-text/60">
                   {"I'll get back to you as soon as possible"}
                 </CardDescription>
               </CardHeader>
@@ -198,7 +198,7 @@ export function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName" className="text-gruvbox-text">
+                      <Label htmlFor="firstName" className="text-gruvbox-text/80">
                         First Name
                       </Label>
                       <Input
@@ -207,13 +207,13 @@ export function ContactSection() {
                         value={formData.firstName}
                         onChange={handleChange}
                         placeholder="John"
-                        className="bg-[#504945]/30 border-[#665c54]/30 text-gruvbox-text placeholder:text-gruvbox-text/50 focus:border-gruvbox-orange"
+                        className="bg-[#3c3836]/10 border-[#504945]/20 text-gruvbox-text/80 placeholder:text-gruvbox-text/40 focus:border-gruvbox-orange/30"
                         disabled={isSubmitting}
                         required
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName" className="text-gruvbox-text">
+                      <Label htmlFor="lastName" className="text-gruvbox-text/80">
                         Last Name
                       </Label>
                       <Input
@@ -222,14 +222,14 @@ export function ContactSection() {
                         value={formData.lastName}
                         onChange={handleChange}
                         placeholder="Doe"
-                        className="bg-[#504945]/30 border-[#665c54]/30 text-gruvbox-text placeholder:text-gruvbox-text/50 focus:border-gruvbox-orange"
+                        className="bg-[#3c3836]/10 border-[#504945]/20 text-gruvbox-text/80 placeholder:text-gruvbox-text/40 focus:border-gruvbox-orange/30"
                         disabled={isSubmitting}
                         required
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gruvbox-text">
+                    <Label htmlFor="email" className="text-gruvbox-text/80">
                       Email
                     </Label>
                     <Input
@@ -239,13 +239,13 @@ export function ContactSection() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
-                      className="bg-[#504945]/30 border-[#665c54]/30 text-gruvbox-text placeholder:text-gruvbox-text/50 focus:border-gruvbox-orange"
+                      className="bg-[#3c3836]/10 border-[#504945]/20 text-gruvbox-text/80 placeholder:text-gruvbox-text/40 focus:border-gruvbox-orange/30"
                       disabled={isSubmitting}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-gruvbox-text">
+                    <Label htmlFor="message" className="text-gruvbox-text/80">
                       Message
                     </Label>
                     <Textarea
@@ -254,7 +254,7 @@ export function ContactSection() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Your message here..."
-                      className="min-h-[150px] bg-[#504945]/30 border-[#665c54]/30 text-gruvbox-text placeholder:text-gruvbox-text/50 focus:border-gruvbox-orange resize-none"
+                      className="min-h-[150px] bg-[#3c3836]/10 border-[#504945]/20 text-gruvbox-text/80 placeholder:text-gruvbox-text/40 focus:border-gruvbox-orange/30 resize-none"
                       disabled={isSubmitting}
                       required
                     />

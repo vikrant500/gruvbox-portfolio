@@ -43,7 +43,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="backdrop-blur-lg bg-[#3c3836]/30 bg-opacity-20 border border-[#504945]/30 rounded-2xl p-12 max-w-4xl mx-auto"
+          className="backdrop-blur-sm bg-[#3c3836]/10 border border-[#504945]/20 rounded-2xl p-12 max-w-4xl mx-auto"
         >
           {/* Profile Photo */}
           <motion.div
@@ -53,7 +53,7 @@ export function HeroSection() {
             className="mb-8 flex justify-center"
           >
             <div className="relative">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gruvbox-orange/50 shadow-2xl">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[#504945]/20 shadow-2xl">
                 <img
                   src="/professional/navo pfp.png"
                   alt="Vikrant Sharma"
@@ -65,7 +65,7 @@ export function HeroSection() {
 
           {/* Very Slowly Stretching Name */}
           <motion.h1
-            className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-gruvbox-orange to-gruvbox-green bg-clip-text text-transparent overflow-hidden"
+            className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-gruvbox-orange/80 to-gruvbox-green/80 bg-clip-text text-transparent overflow-hidden"
             style={{
               scaleX: nameScaleX,
               opacity: nameOpacity,
@@ -78,9 +78,9 @@ export function HeroSection() {
             Vikrant Sharma
           </motion.h1>
 
-          <div className="h-16 mb-8">
+          <div className="h-16 mb-8 sm:mb-8 md:mb-8 lg:mb-8">
             <motion.p
-              className="text-2xl md:text-3xl text-gruvbox-text/80"
+              className="text-2xl md:text-3xl text-gruvbox-text/60"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -89,7 +89,7 @@ export function HeroSection() {
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
-                className="text-gruvbox-orange"
+                className="text-gruvbox-orange/60"
               >
                 |
               </motion.span>
@@ -97,7 +97,7 @@ export function HeroSection() {
           </div>
 
           <motion.div
-            className="flex gap-4 justify-center flex-wrap"
+            className="flex gap-4 justify-center flex-wrap mt-12 sm:mt-12 md:mt-8 lg:mt-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}

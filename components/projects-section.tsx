@@ -63,7 +63,7 @@ const projects = [
     description: "Responsive portfolio with smooth animations and glassmorphism effects",
     image: "/professional/portfolio.png",
     tags: ["React", "Framer Motion", "Tailwind", "TypeScript"],
-    github: "#",
+    github: "https://github.com/vikrant500/gruvbox-portfolio.git",
     isWebsite: false,
     // live: "#",
   },
@@ -81,17 +81,10 @@ export function ProjectsSection() {
   return (
     <section id="projects" ref={containerRef} className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          style={{ y }}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl font-bold mb-4 text-gruvbox-orange">Featured Projects</h2>
-          <p className="text-xl text-gruvbox-text/70">A showcase of my recent work</p>
-        </motion.div>
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-4 text-gruvbox-orange/90">Featured Projects</h2>
+          <p className="text-xl text-gruvbox-text/60">A showcase of my recent work</p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
@@ -108,21 +101,21 @@ export function ProjectsSection() {
               }}
               className="group"
             >
-              <Card className="backdrop-blur-lg bg-[#3c3836]/30 border-[#504945]/30 hover:border-gruvbox-orange/50 transition-all duration-300 overflow-hidden">
+              <Card className="backdrop-blur-sm bg-[#3c3836]/10 border-[#504945]/20 hover:border-gruvbox-orange/30 transition-all duration-300 overflow-hidden">
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-48 object-top transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gruvbox-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gruvbox-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 <CardHeader>
-                  <CardTitle className="text-gruvbox-text group-hover:text-gruvbox-orange transition-colors">
+                  <CardTitle className="text-gruvbox-text/80 group-hover:text-gruvbox-orange/80 transition-colors">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-gruvbox-text/70">{project.description}</CardDescription>
+                  <CardDescription className="text-gruvbox-text/60">{project.description}</CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -130,7 +123,7 @@ export function ProjectsSection() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 text-xs rounded-full bg-gruvbox-green/20 text-gruvbox-green border border-gruvbox-green/30"
+                        className="px-2 py-1 text-xs rounded-full bg-[#3c3836]/10 text-gruvbox-green/80 border border-[#504945]/20"
                       >
                         {tag}
                       </span>
