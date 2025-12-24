@@ -1,155 +1,148 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { Code2, Wrench, BookOpen, Package } from "lucide-react"
 
 const skills = [
   // Languages
-  { name: "Java", level: 60, category: "language", color: "gruvbox-orange" },
-  { name: "Python", level: 85, category: "language", color: "gruvbox-green" },
-  { name: "C/C++", level: 90, category: "language", color: "gruvbox-purple" },
-  { name: "SQL (Postgres)", level: 80, category: "language", color: "gruvbox-orange" },
-  { name: "JavaScript", level: 85, category: "language", color: "gruvbox-green" },
-  { name: "TypeScript", level: 85, category: "language", color: "gruvbox-purple" },
-  { name: "HTML/CSS", level: 95, category: "language", color: "gruvbox-orange" },
-  { name: "Lua", level: 60, category: "language", color: "gruvbox-green" },
-  { name: "Embedded C", level: 60, category: "language", color: "gruvbox-purple" },
+  { name: "Java", category: "language" },
+  { name: "Python", category: "language" },
+  { name: "C/C++", category: "language" },
+  { name: "SQL (Postgres)", category: "language" },
+  { name: "JavaScript", category: "language" },
+  { name: "TypeScript", category: "language" },
+  { name: "HTML/CSS", category: "language" },
+  { name: "Lua", category: "language" },
+  { name: "Embedded C", category: "language" },
 
   // Frameworks
-  { name: "React", level: 80, category: "framework", color: "gruvbox-orange" },
-  { name: "Node.js", level: 80, category: "framework", color: "gruvbox-green" },
-  { name: "Django", level: 80, category: "framework", color: "gruvbox-purple" },
-  { name: "FastAPI", level: 85, category: "framework", color: "gruvbox-orange" },
+  { name: "React", category: "framework" },
+  { name: "Node.js", category: "framework" },
+  { name: "Django", category: "framework" },
+  { name: "FastAPI", category: "framework" },
 
   // Developer Tools
-  { name: "Git", level: 90, category: "tools", color: "gruvbox-green" },
-  { name: "Docker", level: 60, category: "tools", color: "gruvbox-purple" },
-  { name: "Excel", level: 90, category: "tools", color: "gruvbox-orange" },
-  { name: "Jupyter", level: 90, category: "tools", color: "gruvbox-green" },
-  { name: "MongoDB", level: 80, category: "tools", color: "gruvbox-purple" },
-  { name: "Anaconda", level: 90, category: "tools", color: "gruvbox-orange" },
-  { name: "WSL", level: 75, category: "tools", color: "gruvbox-green" },
-  { name: "Nvim", level: 90, category: "tools", color: "gruvbox-purple" },
-  { name: "Matlab", level: 60, category: "tools", color: "gruvbox-orange" },
-  { name: "AWS", level: 70, category: "tools", color: "gruvbox-green" },
-  { name: "LLAMA", level: 75, category: "tools", color: "gruvbox-purple" },
-  { name: "Arduino", level: 90, category: "tools", color: "gruvbox-orange" },
-  { name: "Raspberry Pi", level: 75, category: "tools", color: "gruvbox-green" },
+  { name: "Git", category: "tools" },
+  { name: "Docker", category: "tools" },
+  { name: "Excel", category: "tools" },
+  { name: "Jupyter", category: "tools" },
+  { name: "MongoDB", category: "tools" },
+  { name: "Anaconda", category: "tools" },
+  { name: "WSL", category: "tools" },
+  { name: "Nvim", category: "tools" },
+  { name: "Matlab", category: "tools" },
+  { name: "AWS", category: "tools" },
+  { name: "LLAMA", category: "tools" },
+  { name: "Arduino", category: "tools" },
+  { name: "Raspberry Pi", category: "tools" },
 
   // Libraries
-  { name: "Pandas", level: 75, category: "library", color: "gruvbox-orange" },
-  { name: "NumPy", level: 75, category: "library", color: "gruvbox-green" },
-  { name: "Matplotlib", level: 72, category: "library", color: "gruvbox-purple" },
-  { name: "PyTorch", level: 75, category: "library", color: "gruvbox-orange" },
-  { name: "scikit-learn", level: 80, category: "library", color: "gruvbox-green" },
-  { name: "TensorFlow", level: 75, category: "library", color: "gruvbox-purple" },
+  { name: "Pandas", category: "library" },
+  { name: "NumPy", category: "library" },
+  { name: "Matplotlib", category: "library" },
+  { name: "PyTorch", category: "library" },
+  { name: "scikit-learn", category: "library" },
+  { name: "TensorFlow", category: "library" },
 ]
 
-const categories = {
-  language: "Languages",
-  framework: "Frameworks",
-  tools: "Developer Tools",
-  library: "Libraries",
-}
+const categories = [
+  {
+    id: "language",
+    name: "Languages",
+    icon: Code2,
+    gradient: "from-purple-primary to-purple-accent",
+  },
+  {
+    id: "framework",
+    name: "Frameworks",
+    icon: Package,
+    gradient: "from-purple-light to-purple-primary",
+  },
+  {
+    id: "tools",
+    name: "Developer Tools",
+    icon: Wrench,
+    gradient: "from-purple-accent to-purple-violet",
+  },
+  {
+    id: "library",
+    name: "Libraries",
+    icon: BookOpen,
+    gradient: "from-purple-lavender to-purple-light",
+  },
+]
 
 export function SkillsSection() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-
-  const filteredSkills = selectedCategory ? skills.filter((skill) => skill.category === selectedCategory) : skills
-
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="py-12 md:py-20 px-4">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-5xl font-bold mb-4 text-gruvbox-green/90">Skills & Technologies</h2>
-          <p className="text-xl text-gruvbox-text/60">My technical expertise</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-dracula-purple to-dracula-pink bg-clip-text text-transparent">
+            Skills & Technologies
+          </h2>
+          <p className="text-lg md:text-xl text-dracula-foreground/70">
+            My technical expertise across multiple domains
+          </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="backdrop-blur-sm bg-[#3c3836]/10 border border-[#504945]/20 rounded-2xl p-8"
-        >
-          <div className="flex flex-wrap gap-2 mb-8 justify-center">
-            <button
-              onClick={() => setSelectedCategory(null)}
-              className={`px-4 py-2 rounded-full transition-all ${
-                selectedCategory === null
-                  ? "bg-gruvbox-orange/80 text-gruvbox-dark"
-                  : "bg-[#3c3836]/10 text-gruvbox-text/80 hover:bg-gruvbox-orange/10 border border-[#504945]/20"
-              }`}
-            >
-              All
-            </button>
-            {Object.entries(categories).map(([key, label]) => (
-              <button
-                key={key}
-                onClick={() => setSelectedCategory(key)}
-                className={`px-4 py-2 rounded-full transition-all ${
-                  selectedCategory === key
-                    ? "bg-gruvbox-orange/80 text-gruvbox-dark"
-                    : "bg-[#3c3836]/10 text-gruvbox-text/80 hover:bg-gruvbox-orange/10 border border-[#504945]/20"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {categories.map((category, categoryIndex) => {
+            const Icon = category.icon
+            const categorySkills = skills.filter((skill) => skill.category === category.id)
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredSkills.map((skill, index) => (
+            return (
               <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={category.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 10px 30px rgba(254, 128, 25, 0.1)",
-                }}
-                transition={{ 
-                  duration: 0.2, 
-                  ease: "easeOut",
-                  default: { duration: 0.4 }
-                }}
-                className="backdrop-blur-sm bg-[#3c3836]/10 rounded-xl p-4 border border-[#504945]/20 hover:border-gruvbox-orange/30 transition-all duration-200 ease-out cursor-pointer group"
+                className="backdrop-blur-lg bg-dracula-current/50 border border-dracula-purple/30 rounded-2xl p-4 md:p-6 hover:border-dracula-pink hover:shadow-lg hover:shadow-dracula-purple/20 transition-all duration-300"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-semibold text-gruvbox-text/80 group-hover:text-gruvbox-orange/80 transition-colors duration-200">
-                    {skill.name}
-                  </h3>
-                  <span className="text-xs text-gruvbox-text/60">{skill.level}%</span>
+                {/* Category Header */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className={`p-3 rounded-lg bg-gradient-to-br ${category.gradient} bg-opacity-20`}>
+                    <Icon className="w-6 h-6 text-dracula-foreground" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-dracula-foreground">{category.name}</h3>
                 </div>
 
-                <div className="w-full bg-[#3c3836]/20 rounded-full h-1.5 overflow-hidden">
-                  <motion.div
-                    className={`h-full bg-gradient-to-r from-gruvbox-orange/60 to-gruvbox-green/60 rounded-full`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1}}
-                    viewport={{ once: true }}
-                  />
+                {/* Skills List */}
+                <div className="flex flex-wrap gap-2">
+                  {categorySkills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
+                      viewport={{ once: true }}
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "rgba(189, 147, 249, 0.2)",
+                      }}
+                      className="px-3 py-1.5 rounded-full bg-dracula-bg/50 border border-dracula-purple/30 hover:border-dracula-pink transition-all cursor-default"
+                    >
+                      <span className="text-xs md:text-sm text-dracula-foreground/90 font-medium">{skill.name}</span>
+                    </motion.div>
+                  ))}
                 </div>
 
-                <motion.div 
-                  className="mt-1 text-xs text-gruvbox-text/60 capitalize transition-colors duration-200" 
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                >
-                  {categories[skill.category as keyof typeof categories]}
-                </motion.div>
+                {/* Skill Count Badge */}
+                <div className="mt-6 pt-4 border-t border-dracula-purple/30">
+                  <span className="text-xs text-dracula-comment">
+                    {categorySkills.length} {categorySkills.length === 1 ? "skill" : "skills"}
+                  </span>
+                </div>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

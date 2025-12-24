@@ -10,5 +10,10 @@ export function ScrollProgress() {
     restDelta: 0.001,
   })
 
-  return <motion.div className="fixed top-0 left-0 right-0 h-1 bg-gruvbox-orange z-50 origin-left" style={{ scaleX }} />
+  return (
+    <motion.div
+      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-dracula-purple to-dracula-pink z-50 origin-left"
+      style={{ scaleX }}
+    />
+  )
 }

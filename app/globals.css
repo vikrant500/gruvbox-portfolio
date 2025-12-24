@@ -67,32 +67,32 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom scrollbar */
+/* Updated scrollbar for Dracula theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #282828;
+  background: #1a1625;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #fe8019;
+  background: #bd93f9;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d65d0e;
+  background: #ff79c6;
 }
 
-/* Glassmorphism utilities */
+/* Updated glassmorphism for Dracula theme */
 .glass {
   backdrop-filter: blur(12px);
-  background: rgba(60, 56, 54, 0.3);
-  border: 1px solid rgba(80, 73, 69, 0.3);
+  background: rgba(26, 22, 37, 0.3);
+  border: 1px solid rgba(189, 147, 249, 0.3);
 }
 
 .glass-hover:hover {
-  background: rgba(254, 128, 25, 0.1);
-  border-color: rgba(254, 128, 25, 0.3);
+  background: rgba(189, 147, 249, 0.1);
+  border-color: rgba(189, 147, 249, 0.3);
 }

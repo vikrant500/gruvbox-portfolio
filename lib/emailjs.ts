@@ -34,6 +34,7 @@ export const sendEmail = async (formData: {
   firstName: string;
   lastName: string;
   email: string;
+  subject?: string;
   message: string;
 }) => {
   // Validate required data
@@ -43,7 +44,7 @@ export const sendEmail = async (formData: {
 
   try {
     const templateParams = {
-      subject: `Message from ${formData.firstName} ${formData.lastName}`,
+      subject: formData.subject || `Message from ${formData.firstName} ${formData.lastName}`,
       name: `${formData.firstName} ${formData.lastName}`,
       Message: formData.message,
       email: formData.email,
@@ -64,21 +65,54 @@ export const sendEmail = async (formData: {
     console.log('EmailJS Response:', response);
     return { success: true, data: response };
   } catch (error: any) {
-    console.error('EmailJS error details:', {
-      error,
-      message: error?.message,
-      text: error?.text,
-      status: error?.status,
+    // Build a richer, serializable error object for logging
+    const errorDetails: any = {
+      type: typeof error,
+      message: error?.message ?? String(error) ?? 'Unknown error',
+      name: error?.name,
+      stack: error?.stack,
+      status: error?.status ?? error?.statusCode ?? error?.status_code,
       serviceId,
       templateId,
       hasPublicKey: !!publicKey,
-      stack: error?.stack
-    });
-    
-    // Throw a more detailed error
+    };
+
+    try {
+      // emailjs may reject with an XHR/Response-like object that has non-enumerable fields.
+      // Try to extract common useful fields safely.
+      if (error?.text) {
+        // sometimes error.text is a string
+        errorDetails.text = error.text;
+      } else if (error?.response) {
+        // response might be a Fetch Response or similar
+        const resp = error.response as any;
+        if (typeof resp.text === 'function') {
+          // await response body text
+          errorDetails.responseText = await resp.text();
+        } else if (resp.responseText) {
+          errorDetails.responseText = resp.responseText;
+        }
+        if (resp.status) errorDetails.status = errorDetails.status ?? resp.status;
+      } else if (error?.xhr) {
+        const xhr = error.xhr as any;
+        errorDetails.xhr = {
+          status: xhr.status,
+          response: xhr.response || xhr.responseText,
+        };
+        errorDetails.status = errorDetails.status ?? xhr.status;
+      }
+    } catch (extractErr) {
+      // Non-fatal: include extraction failure information
+      errorDetails.extractError = String(extractErr);
+    }
+
+    // Log the structured details so it's visible in the browser console and server logs
+    console.error('EmailJS error details:', errorDetails);
+
+    // Throw a concise error upwards with the main info
     throw new Error(
-      `EmailJS error: ${error?.message || error?.text || 'Unknown error'}
-      Status: ${error?.status || 'No status'}
+      `EmailJS error: ${errorDetails.message}
+      Status: ${errorDetails.status ?? 'No status'}
       Service ID: ${serviceId}
       Template ID: ${templateId}`
     );
